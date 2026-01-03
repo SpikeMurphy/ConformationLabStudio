@@ -1,0 +1,79 @@
+javascript
+function doPost(e) {
+  try {
+    Logger.log("e = " + JSON.stringify(e));
+    var data = JSON.parse(e.postData.contents);
+  } catch(err) {
+    Logger.log("Error parsing POST data: " + err);
+    return ContentService.createTextOutput("FAIL");
+  }
+  
+  var email = data.username;
+  var passwordHash = data.password;
+  var action = data.action;
+  var timestamp = new Date();
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var usersSheet = ss.getSheetByName("Users");
+  var logsSheet = ss.getSheetByName("Logs");
+  var users = usersSheet.getDataRange().getValues();
+
+  if (action === "Register") {
+    if (!isValidEmail(email)) {
+      Logger.log("Invalid email: " + email);
+      return ContentService.createTextOutput("INVALID_EMAIL");
+    }
+
+    // check duplicate
+    for (var i = 1; i < users.length; i++) {
+      if (users[i][0] === email) {
+        Logger.log("Duplicate email: " + email);
+        return ContentService.createTextOutput("DUPLICATE");
+      }
+    }
+
+    // generate token & save
+    var token = Utilities.getUuid();
+    var status = "pending"; 
+    var mailStatus = "not_sent";
+
+    var verifyLink = "https://script.google.com/macros/s/AKfycbzGlVgAF0VtobfBGHI-3RPuWx4q2V5F3_VfAbMa-u3ui6GN8F_AxuUIPlTsU0k_hLx3/exec?verify=true&email=" + encodeURIComponent(email) + "&token=" + token;
+
+    try {
+      MailApp.sendEmail(email, "Activate your account",
+        "Welcome!\n\nPlease click this link to activate your account:\n" + verifyLink);
+      mailStatus = "sent";
+      Logger.log("Email sent to: " + email);
+    } catch (err) {
+      mailStatus = "error: " + err.message;
+      Logger.log("Error sending email: " + err);
+    }
+
+    // Save to sheet
+    usersSheet.appendRow([email, passwordHash, "pending", token, mailStatus, timestamp]);
+    return ContentService.createTextOutput("PENDING_EMAIL");
+
+  } else if (action === "Login") {
+    // Anmeldung prüfen
+    for (var i=1; i<users.length; i++) {
+      if (users[i][0] == email && users[i][1] == passwordHash) {
+        if (users[i][2] == "active") {
+          logsSheet.appendRow([email, new Date(), "Login"]);
+          return ContentService.createTextOutput("OK");
+        } else {
+          return ContentService.createTextOutput("NOT_ACTIVE");
+        }
+      }
+    }
+    return ContentService.createTextOutput("FAIL");
+  } else {
+    Logger.log("Unbekannte Aktion: " + action);
+    return ContentService.createTextOutput("INVALID_ACTION");
+  }
+}
+
+// Email-Validierung
+function isValidEmail(email) {
+  var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return pattern.test(email);
+}

@@ -1,0 +1,122 @@
+🏴󠁧󠁢󠁥󠁮󠁧󠁿 Privacy Policy (german version below)
+Last updated: October 2025  
+
+We take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations (in particular GDPR) as well as this privacy policy.
+
+## Data Protection Officer:
+**Matthias Jaster**  
+Martinistraße 52  
+20246 Hamburg  
+Tel.  +49 (0) 40 7410 - 56890  
+E-Mail:  m.jaster@uke.de
+
+For questions regarding data protection you can contact the data protection controller directly.  
+You can also yse our [contact form](/contact).  
+
+## Collection and storage of personal data
+### When visiting the website
+The web server (HostGator) automatically collects technical information when you access our site, including:
+- IP address of the requesting device
+- Date and time of access
+- Name and URL of the retrieved file
+- Browser type/version and operating system
+- Referrer URL (previously visited page)
+
+This data is processed solely to ensure a stable and secure operation of the website (e.g., for troubleshooting, preventing misuse, or maintaining system security).  
+Legal basis: Art. 6(1)(f) GDPR (legitimate interest in ensuring stability and security).
+### Login and Authentication
+At present, there is no local login on our server. In the future, authentication may be provided exclusively via external providers such as ORCID or Auth0.  
+When using these services, your login data is processed directly by the chosen provider. We do not receive your password.  
+Depending on the service, we may receive your name, email address, and/or ORCID iD, strictly for the purpose of identifying you within the application.  
+Legal basis: Art. 6(1)(b) GDPR (processing necessary for contract performance) and Art. 6(1)(f) GDPR (legitimate interest in secure authentication).  
+
+{{< external_link url="https://info.orcid.org/privacy-policy/" text="ORCID Privacy Policy" >}}  
+{{< external_link url="https://auth0.com/docs/secure/data-privacy-and-compliance" text="Auth0 Privacy Policy" >}}
+
+## Legal basis of processing
+Processing is based on Art. 6(1)(f) GDPR (legitimate interest in access control) and Art. 6(1)(b) GDPR (performance of a contract or pre-contractual measures, when login/authentication is used).
+ 
+## Storage and data transfer
+Server log data is stored temporarily for a maximum of 14 days and then automatically deleted, unless longer storage is required for security or legal purposes.  
+We do not sell or otherwise transfer personal data to third parties, except where required by law or for the purpose of hosting (HostGator acts as a data processor under Art. 28 GDPR).  
+When using ORCID or Auth0, your data is transferred to these providers in accordance with their privacy policies.  
+
+## Security
+We use appropriate technical and organizational security measures to protect your data against accidental or intentional manipulation, loss, destruction, or unauthorized access.  
+
+## Duration of storage
+Log data: up to 14 days  
+Login data (via ORCID/Auth0): as long as you maintain your account with us  
+Longer storage may occur if required by law (e.g., tax or legal retention periods).  
+No additional personal data is permanently stored on our servers.  
+
+## Your rights
+### You have the right to:  
+- Right of access (Art. 15 GDPR)
+- Right to rectification (Art. 16 GDPR)
+- Right to erasure (Art. 17 GDPR)
+- Right to restriction of processing (Art. 18 GDPR)
+- Right to data portability (Art. 20 GDPR)
+- Right to object to processing (Art. 21 GDPR)
+You also have the right to lodge a complaint with a data protection supervisory authority, in particular in the EU Member State of your habitual residence, place of work, or the place of the alleged infringement (Art. 77 GDPR).
+
+
+-----
+🇩🇪 Datenschutzerklärung
+Stand: Oktober 2025
+
+Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen.
+Wir behandeln Ihre Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (insbesondere der Datenschutz-Grundverordnung – DSGVO) sowie dieser Datenschutzerklärung.
+Datenschutzbeauftragter
+Matthias Jaster
+Universitätsklinikum Hamburg-Eppendorf (UKE)
+Martinistraße 52
+20246 Hamburg
+Deutschland
+📞 Telefon: +49 (0) 40 7410 – 56890
+📧 E-Mail: m.jaster@uke.de
+Bei Fragen zum Datenschutz können Sie sich jederzeit direkt an den Datenschutzbeauftragten wenden.
+Erhebung und Speicherung personenbezogener Daten
+Bei der Nutzung der Anwendung
+Die Anwendung ConformationLab Studio verarbeitet standardmäßig keine personenbezogenen Daten, die Rückschlüsse auf Ihre Identität zulassen.
+Die gesamte Verarbeitung erfolgt lokal auf Ihrem Endgerät.
+Es werden keine Daten an externe Server übertragen und keine Nutzerprofile erstellt.
+Zur Sicherstellung der Funktionsfähigkeit können temporär technische Log-Dateien (z. B. Fehlermeldungen) im lokalen Dateisystem gespeichert werden.
+Diese enthalten keine personenbezogenen Daten und dienen ausschließlich der Fehlerbehebung und Stabilität der Software.
+Authentifizierung und Online-Dienste
+Derzeit ist keine Online-Anmeldung oder Serverkommunikation in ConformationLab Studio vorgesehen.
+Sollte in zukünftigen Versionen eine Anmeldung über externe Dienste (z. B. ORCID, Auth0) implementiert werden, erfolgt die Datenverarbeitung ausschließlich über die jeweiligen Anbieter.
+Wir erhalten in diesem Fall keine Passwörter und speichern nur die minimal erforderlichen Identifikationsdaten (z. B. Name, E-Mail-Adresse oder ORCID iD), sofern dies für den Zugriff auf wissenschaftliche Funktionen notwendig ist.
+Rechtsgrundlage:
+Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und
+Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sicherer Authentifizierung).
+🔗 Datenschutzerklärung von ORCID
+🔗 Datenschutzerklärung von Auth0
+Rechtsgrundlage der Verarbeitung
+Die Verarbeitung Ihrer Daten (sofern überhaupt erforderlich) erfolgt ausschließlich auf Basis von
+Art. 6 Abs. 1 lit. b DSGVO (zur Erfüllung vertraglicher Pflichten) oder
+Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sicherem und stabilem Betrieb).
+Eine weitergehende oder kommerzielle Nutzung Ihrer Daten findet nicht statt.
+Speicherung und Weitergabe von Daten
+Lokale Protokolle (Logs): Temporär auf Ihrem Gerät gespeichert, automatisch gelöscht bei Deinstallation oder manuell durch Sie entfernbar.
+Keine Übertragung an Dritte: Es erfolgt keine Weitergabe, kein Verkauf und keine externe Speicherung personenbezogener Daten.
+Drittanbieter-Komponenten (z. B. ColabFold, AlphaFold2) arbeiten lokal oder gemäß deren eigener Lizenz- und Datenschutzbedingungen.
+Datensicherheit
+Wir setzen geeignete technische und organisatorische Maßnahmen ein, um Ihre Daten vor Verlust, Missbrauch, unbefugtem Zugriff oder Manipulation zu schützen.
+Da die Verarbeitung ausschließlich lokal erfolgt, liegt die Datensicherheit primär in Ihrer eigenen Systemumgebung (z. B. Geräteschutz, Backup, Verschlüsselung).
+Dauer der Speicherung
+Lokale Log-Dateien: temporär, automatisch oder manuell löschbar
+Keine dauerhafte Speicherung personenbezogener Daten
+Keine serverseitige Speicherung oder Analyse
+Ihre Rechte (gemäß DSGVO)
+Sie haben jederzeit das Recht auf:
+Auskunft über die gespeicherten Daten (Art. 15 DSGVO)
+Berichtigung unrichtiger Daten (Art. 16 DSGVO)
+Löschung Ihrer Daten (Art. 17 DSGVO)
+Einschränkung der Verarbeitung (Art. 18 DSGVO)
+Datenübertragbarkeit (Art. 20 DSGVO)
+Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)
+Zudem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren – insbesondere in dem EU-Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes (Art. 77 DSGVO).
+Kontakt
+Für Datenschutzanfragen oder Anliegen zur Datenverarbeitung in ConformationLab Studio wenden Sie sich bitte an:
+📧 conformationlab@gmail.com

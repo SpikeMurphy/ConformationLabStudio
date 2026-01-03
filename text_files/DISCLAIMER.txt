@@ -1,0 +1,16 @@
+🏴󠁧󠁢󠁥󠁮󠁧󠁿 Disclaimer (german version below)
+
+This project is primarily a personal learning endeavor. 
+I’m exploring and experimenting with coding, software development, web development and related tools as part of my own growth and education. 
+While I aim for functionality and accuracy, I am not a professional developer, and this project may contain errors or incomplete features. 
+Please use any information or code provided here at your own discretion.
+
+
+-----
+🇩🇪 Disclaimer
+
+Dieses Projekt ist in erster Linie ein persönliches Lernvorhaben.  
+Ich experimentiere mit Programmierung, Software- und Webentwicklung sowie verwandten Werkzeugen, um meine eigenen Fähigkeiten zu erweitern.  
+Obwohl ich Wert auf Funktionalität und Genauigkeit lege, bin ich kein professioneller Softwareentwickler und dieses Projekt kann Fehler oder unvollständige Funktionen enthalten.  
+Bitte verwenden Sie alle hier bereitgestellten Informationen oder Codes auf Ihr eigenes Risiko.  
+Dieses Projekt spiegelt meine Neugier, meinen Lernprozess und meine Wertschätzung für Open-Source-Software sowie die wissenschaftliche Comunity wider.  

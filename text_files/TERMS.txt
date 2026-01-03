@@ -1,0 +1,94 @@
+🏴󠁧󠁢󠁥󠁮󠁧󠁿 Terms of Use (german version below)
+Last updated: October 2025  
+
+## General Information  
+ConformationLab Studio is a personal, non-commercial learning project developed and distributed by an individual developer based in Germany.  
+The software is made available under the terms of the MIT License, which allows free use, modification, and redistribution, provided that the copyright and permission notices are included in all copies or substantial portions of the software.  
+By downloading, installing, or using this software, you agree to these Terms of Use and acknowledge the information provided in the accompanying Disclaimer, Privacy Policy, and License sections.  
+
+## License and Usage Rights  
+This software is licensed under the MIT License.  
+You are free to use, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, subject to the conditions defined in the license.  
+A copy of the license is included with this application and can be found [online](/mit_license).
+## Educational and Non-Commercial Purpose  
+This project is developed primarily for educational and research learning purposes.  
+It is not intended for professional, clinical, or commercial use.  
+Any scientific or academic use should be done with proper validation and under the user’s own responsibility. 
+ 
+## No Warranty  
+The software is provided “as is”, without any warranty or guarantee of any kind, whether express or implied.  
+This includes, but is not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement.  
+No assurance is given regarding the accuracy, reliability, completeness, or performance of the software.  
+
+## Limitation of Liability  
+To the maximum extent permitted by applicable law, the developer or copyright holder shall not be held liable for any damages, losses, or other consequences resulting from the use, inability to use, or misuse of this software — including, but not limited to, data loss, business interruption, or system failure.  
+This applies even if the developer has been advised of the possibility of such damages.  
+
+## Open-Source Components  
+This project makes use of third-party open-source libraries and tools.  
+Each of these components is subject to its own license terms, which are listed in the Licenses section of this application.  
+By using the software, you agree to also comply with those licenses.  
+
+## Data and Privacy  
+This application runs entirely locally on your computer.  
+It does not collect, store, or transmit any personal data to the developer or third parties.  
+If you choose to contact the developer (for feedback, collaboration, or questions), any data you share will be processed according to the EU General Data Protection Regulation (GDPR) principles of transparency, purpose limitation, and data minimization.  
+For more details, please refer to the Privacy Policy.  
+
+## Jurisdiction and Applicable Law  
+These Terms of Use are governed by the laws of the Federal Republic of Germany, without regard to conflict of law provisions.  
+Any disputes arising from or related to the use of this software shall be subject to the exclusive jurisdiction of the courts in Germany.  
+
+## Ongoing Development  
+This project is continuously evolving as part of the developer’s personal learning process.  
+Features, interface elements, and functionality may change without prior notice.  
+
+## Contact  
+If you have questions, feedback, or suggestions, please feel free to reach out:  
+📧 conformationlab@gmail.com
+
+
+-----
+🇩🇪 Nutzungsbedingungen
+Stand: Oktober 2025
+Allgemeine Informationen
+ConformationLab Studio ist ein persönliches, nicht-kommerzielles Lern- und Forschungsprojekt, das von einer einzelnen Entwicklerperson in Deutschland entwickelt wurde.
+Die Software wird unter den Bedingungen der MIT-Lizenz bereitgestellt. Diese erlaubt die freie Nutzung, Änderung und Weitergabe des Programms, sofern der Urheberrechtshinweis und die Lizenzbedingungen in allen Kopien oder wesentlichen Teilen der Software enthalten sind.
+Durch das Herunterladen, Installieren oder Verwenden dieser Software erklären Sie sich mit diesen Nutzungsbedingungen sowie den Hinweisen in der Haftungsausschluss-, Datenschutz- und Lizenzsektion einverstanden.
+Lizenz und Nutzungsrechte
+Diese Software ist unter der MIT License veröffentlicht.
+Sie dürfen die Software frei verwenden, kopieren, verändern, zusammenführen, veröffentlichen, vertreiben, unterlizenzieren und/oder verkaufen – unter Beachtung der Lizenzbedingungen.
+Eine Kopie der Lizenz ist dieser Anwendung beigefügt und kann auch online eingesehen werden.
+Bildungs- und Forschungszweck
+Dieses Projekt wurde zu Lern-, Forschungs- und Ausbildungszwecken entwickelt.
+Es ist nicht für den klinischen, diagnostischen oder kommerziellen Einsatz vorgesehen.
+Jede wissenschaftliche Nutzung erfolgt auf eigene Verantwortung und sollte nur nach entsprechender Validierung der Ergebnisse erfolgen.
+Keine Gewährleistung
+Die Software wird „wie besehen“ (as is) bereitgestellt – ohne jegliche ausdrückliche oder stillschweigende Gewährleistung.
+Dazu gehören insbesondere, aber nicht ausschließlich, stillschweigende Gewährleistungen der Marktgängigkeit, der Eignung für einen bestimmten Zweck oder der Nichtverletzung von Rechten Dritter.
+Es wird keine Garantie für die Richtigkeit, Zuverlässigkeit, Vollständigkeit oder Leistungsfähigkeit der Software übernommen.
+Haftungsbeschränkung
+Soweit gesetzlich zulässig, übernimmt der Entwickler oder Rechteinhaber keine Haftung für direkte oder indirekte Schäden, Verluste oder Folgeschäden, die durch die Nutzung, Nichtnutzung oder fehlerhafte Nutzung der Software entstehen.
+Dazu zählen insbesondere Datenverlust, Betriebsunterbrechungen oder Systemausfälle – selbst wenn auf die Möglichkeit solcher Schäden hingewiesen wurde.
+Open-Source-Komponenten
+ConformationLab Studio verwendet verschiedene Open-Source-Bibliotheken und -Tools.
+Jede dieser Komponenten unterliegt ihren eigenen Lizenzbedingungen, die im Abschnitt „Lizenzen“ der Anwendung aufgeführt sind.
+Durch die Nutzung der Software erklären Sie sich damit einverstanden, auch diese Lizenzbestimmungen einzuhalten.
+Beispiele genutzter Komponenten:
+ColabFold (MIT License, © 2021 Sergey Ovchinnikov)
+AlphaFold2 (Apache License 2.0, © DeepMind Technologies Limited)
+Datenschutz und Datenverarbeitung
+Diese Anwendung läuft ausschließlich lokal auf Ihrem Gerät.
+Es findet keine Erhebung, Speicherung oder Übertragung personenbezogener Daten an den Entwickler oder Dritte statt.
+Wenn Sie sich freiwillig an den Entwickler wenden (z. B. per E-Mail oder zur Zusammenarbeit), werden Ihre Daten gemäß den Grundsätzen der Datenschutz-Grundverordnung (DSGVO) verarbeitet – insbesondere Transparenz, Zweckbindung und Datenminimierung.
+Weitere Informationen finden Sie in der Datenschutzerklärung (Privacy Policy).
+Anwendbares Recht und Gerichtsstand
+Diese Nutzungsbedingungen unterliegen dem Recht der Bundesrepublik Deutschland, unter Ausschluss kollisionsrechtlicher Bestimmungen.
+Für alle Streitigkeiten aus oder im Zusammenhang mit der Nutzung dieser Software ist ausschließlich das sachlich zuständige Gericht in Deutschland zuständig.
+Weiterentwicklung
+ConformationLab Studio befindet sich in fortlaufender Entwicklung im Rahmen eines persönlichen Lernprojekts.
+Funktionen, Benutzeroberfläche und Arbeitsweise der Anwendung können sich ohne vorherige Ankündigung ändern.
+Es besteht kein Anspruch auf Updates, Support oder Funktionsumfang.
+Kontakt
+Bei Fragen, Anregungen oder Rückmeldungen:
+📧 conformationlab@gmail.com
