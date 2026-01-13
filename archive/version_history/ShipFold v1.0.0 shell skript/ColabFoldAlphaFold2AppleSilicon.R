@@ -48,4 +48,3 @@ ggplot(data=df_CPU_RAM, aes(protein_length, max_RAM_Intel_M1_M3, color=device)) 
   geom_smooth(method="lm") + # adds linear regression line
   labs(x="Protein Length [aa]", y="Maximum Memory Usage [GB]", title="Memory Usege Correlates to Protein Length") + # adds lables
   scale_y_continuous(labels = scales::number_format(accuracy = 0.1))
-

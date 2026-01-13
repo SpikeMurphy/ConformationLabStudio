@@ -13,3 +13,11 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# instructions
+instructions/
+
+#old deprecated files
+assisting_scripts/GoogleAppSkript
+assisting_scripts/run_login_auth0_v1.0.py
+assisting_scripts/run_login_orcid_v1.0.py

@@ -270,13 +270,16 @@ Use at your own risk.
 * Open-source Python community
 * Scientific open-data initiatives
 
+This software does not relicense AlphaFold2 or ColabFold.  
+It provides a graphical user interface and execution environment for them.
+
 ---
 
 ## Contact
 
-**Author:** Spike Murphy Müller
-**Email:** [conformationlabstudio@gmail.com](mailto:conformationlabstudio@gmail.com)
+**Author:** Spike Murphy Müller  
+**Email:** [conformationlab@gmail.com](mailto:conformationlab@gmail.com)
 
 ---
 
-© 2025 Spike Murphy Müller — MIT License
+© 2025 Spike Murphy Müller · Licensed under the MIT License

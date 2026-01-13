@@ -1,0 +1,37 @@
+---------- get status of changes ----------
+git status
+--------------------------------------------
+
+
+git add .
+git commit -m "general update"
+git push
+
+git add .
+git commit -m "new content: xxxxx"
+git push
+
+git add .
+git commit -m "new feature: xxxxx"
+git push
+
+git add .
+git commit -m "update: xxxxx"
+git push
+
+git add .
+git commit -m "fix: xxxxx"
+git push
+
+git add .
+git commit -m "add: xxxxx"
+git push
+
+git add .
+git commit -m "remove: xxxxx"
+git push
+
+
+---------- not yet pushed changes ----------
+
+--------------------------------------------

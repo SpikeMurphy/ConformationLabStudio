@@ -2,7 +2,7 @@ About
 
 “Built for learning, inspired by science.”
 
-ConformationLab Studio is a project I created primarily a personal learning endeavor.
+ConformationLab Studio is a project I created primarily as a personal learning endeavor.
 I’m exploring and experimenting with coding, software development, web development and related tools as part of my own growth and education.
 It’s built with Python and Tkinter, packaged with PyInstaller, and serves as a simple interface to explore protein structure prediction.
 The main goal of this app isn’t to produce professional-grade results, but to experiment, learn, and better understand how tools like these work,

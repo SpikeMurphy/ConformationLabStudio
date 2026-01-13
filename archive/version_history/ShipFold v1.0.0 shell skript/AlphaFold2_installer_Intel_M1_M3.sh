@@ -30,6 +30,7 @@
 # you will get either the directory (~/example/example) or an error
 # if there is an error proceed with installation (next line) otherwise the tool is already installed, so proceed with executing the script:
 # enter: xcode-select --install
+#
 # ===================================================================================================================================================================================================================
 
 
@@ -37,8 +38,8 @@
 # 
 # open the mac's Terminal by klicking 'command + space', typing 'Terminal' in the search tool, and clicking on 'Terminal'
 # move skript into the downloads folder
-# to make skript executable enter: 		chmod +x ~/Downloads/AlphaFold2_installer.sh
-# to start running the script enter:		~/Downloads/AlphaFold2_installer.sh
+# to make skript executable enter: 		chmod +x ~/Downloads/AlphaFold2_installer_Intel_M1_M3.sh
+# to start running the script enter:		~/Downloads/AlphaFold2_installer_Intel_M1_M3.sh
 #
 # ===================================================================================================================================================================================================================
 
@@ -87,8 +88,8 @@ echo "
 ***												***
 ============================================= summary =============================================
 "
-echo "*INFO* for each new session activate the 'shipfold' environment before running any modelling with the command: conda activate colabfold *INFO*"
-echo "*INFO* command for running a protein structure prediction can be found in the script when opening in textEDIT                            *INFO*"
+echo "*INFO* for each new session activate the 'shipfold' environment before running any modelling with the command: conda activate shipfold *INFO*"
+echo "*INFO* command for running a protein structure prediction can be found in the script when opening in textEDIT                           *INFO*"
 
 # ===================================================================================================================================================================================================================
 # for each new session activate shipfold environment before running any modelling
@@ -144,4 +145,3 @@ echo "*INFO* command for running a protein structure prediction can be found in 
 # enter: conda env remove -n shipfold
 #
 # ====================================================================================================================================================================================================================
-

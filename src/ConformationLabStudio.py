@@ -25,292 +25,6 @@ import platform  # report issue/color mode
 import shutil
 # imports (end) ==================================================
 
-'''
-# login ==================================================
-#####################
-ENABLE_MAILPW = False
-ENABLE_ORCID = False
-ENABLE_AUTH0 = True
-#####################
-GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbx95pCmR-J6P_VlCqYrlG35gF1f1F7WqwGrmmNVucWgmCooWOIxrSp9XQippsvhYnvv/exec"
-def hash_password(password: str) -> str:
-    return hashlib.sha256(password.encode()).hexdigest()
-def is_valid_email(email: str) -> bool:
-    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
-    return re.match(pattern, email) is not None
-def send_request(email, password, action="Login"):
-    password_hash = hash_password(password)
-    data = {
-        "username": email,
-        "password": password_hash,
-        "action": action,
-        "timestamp": str(datetime.datetime.now())
-    }
-    try:
-        r = requests.post(GOOGLE_SHEET_URL, json=data, timeout=10)
-        return r.text.strip()
-    except Exception as e:
-        print("Request failed:", e)
-        return "FAIL"
-def show_login_window():
-    result = {"ok": False, "email": None, "password": None, "orcid": None}
-    login_root = tk.Tk()
-    login_root.title("ConformationLab Studio Login")
-    status_label = tk.Label(login_root, text="")
-    status_label.pack(pady=5)
-    # center window 90%
-    def get_centered_geometry(scale=0.9):
-        tmp_login_root = tk.Tk()
-        tmp_login_root.withdraw()
-        tmp_login_root.update_idletasks()
-        try:
-            from AppKit import NSScreen
-            frame = NSScreen.mainScreen().visibleFrame()
-            screen_width = int(frame.size.width)
-            screen_height = int(frame.size.height)
-        except ImportError:
-            screen_width = tmp_login_root.winfo_screenwidth()
-            screen_height = tmp_login_root.winfo_screenheight()
-        tmp_login_root.destroy()
-        window_width = int(screen_width * scale)
-        window_height = int(screen_height * scale)
-        window_x = (screen_width - window_width) // 2
-        window_y = (screen_height - window_height) // 2
-        return window_width, window_height, window_x, window_y
-    window_width, window_height, window_x, window_y = get_centered_geometry(0.3)
-    login_root.geometry(f"{window_width}x{window_height}+{window_x}+{window_y}")
-    if ENABLE_MAILPW:
-        # login via mail and pw
-        tk.Label(login_root, text="Email:").pack(pady=5)
-        user_entry = tk.Entry(login_root)
-        user_entry.pack(pady=5)
-        tk.Label(login_root, text="Password:").pack(pady=5)
-        pass_entry = tk.Entry(login_root, show="*")
-        pass_entry.pack(pady=5)
-        login_spinner = ttk.Progressbar(login_root, mode="determinate", length=80, maximum=100)
-        register_spinner = ttk.Progressbar(login_root, mode="determinate", length=80, maximum=100)
-        def run_progress(bar, seconds=3, callback=None):
-            bar["value"] = 0
-            steps = 100
-            delay = int((seconds * 1000) / steps)
-            def step():
-                if bar["value"] < 100:
-                    bar["value"] += 1
-                    login_root.after(delay, step)
-                else:
-                    bar.pack_forget()
-                    if callback:
-                        callback()
-            step()
-        def temporarily_disable_buttons(clicked="login", seconds=3):
-            login_button.config(state="disabled")
-            register_button.config(state="disabled")
-            if 'orcid_button' in locals():
-                orcid_button.config(state="disabled")
-            if 'auth0_button' in locals():
-                auth0_button.config(state="disabled")
-            if clicked == "login":
-                login_spinner.pack(pady=2)
-                status_label.config(text="🔑 Logging in...")
-                run_progress(login_spinner, seconds, reset_buttons)
-            elif clicked == "register":
-                register_spinner.pack(pady=2)
-                status_label.config(text="🔑 Registering...")
-                run_progress(register_spinner, seconds, reset_buttons)
-        def reset_buttons():
-            login_button.config(state="normal")
-            register_button.config(state="normal")
-            if 'orcid_button' in locals():
-                orcid_button.config(state="normal")
-            if 'auth0_button' in locals():
-                auth0_button.config(state="normal")
-            login_spinner["value"] = 0
-            register_spinner["value"] = 0
-        def on_login():
-            temporarily_disable_buttons("login")
-            email = user_entry.get().strip()
-            password = pass_entry.get().strip()
-            def worker():
-                resp = send_request(email, password, "Login")
-                def handle_response():
-                    login_spinner.pack_forget()
-                    login_button.config(state="normal")
-                    register_button.config(state="normal")
-                    if 'orcid_button' in locals():
-                        orcid_button.config(state="normal")
-                    if 'auth0_button' in locals(): 
-                        auth0_button.config(state="normal")
-                    if resp == "OK":
-                        result["ok"] = True
-                        result["email"] = email
-                        result["password"] = password
-                        login_root.destroy()
-                    elif resp == "NOT_ACTIVE":
-                        status_label.config(text="⏳ Please activate your account via email.", fg="orange")
-                    else:
-                        status_label.config(text="❌ Invalid login", fg="red")
-                login_root.after(0, handle_response)
-            threading.Thread(target=worker, daemon=True).start()
-        def on_register():
-            temporarily_disable_buttons("register")
-            email = user_entry.get().strip()
-            password = pass_entry.get().strip()
-            if not is_valid_email(email):
-                status_label.config(text="❌ Please enter a valid email", fg="red")
-                return
-            def worker():
-                resp = send_request(email, password, "Register")
-                def handle_response():
-                    register_spinner.pack_forget()
-                    login_button.config(state="normal")
-                    register_button.config(state="normal")
-                    if 'orcid_button' in locals(): 
-                        orcid_button.config(state="normal")
-                    if 'auth0_button' in locals(): 
-                        auth0_button.config(state="normal")
-                    if resp == "PENDING_EMAIL":
-                        status_label.config(text="📧 Check your email for activation link.", fg="orange")
-                    elif resp == "DUPLICATE":
-                        status_label.config(text="❌ Email already registered", fg="red")
-                    elif resp == "OK":
-                        status_label.config(text="✅ Registration successful! Please check your email.", fg="green")
-                    else:
-                        status_label.config(text="❌ Registration failed", fg="red")
-                login_root.after(0, handle_response)
-            threading.Thread(target=worker, daemon=True).start()
-        login_button = tk.Button(login_root, text="Login", command=on_login)
-        login_button.pack(pady=5)
-        register_button = tk.Button(login_root, text="Register", command=on_register)
-        register_button.pack(pady=5)
-    if ENABLE_ORCID:
-        # ORCID login
-        orcid_spinner = ttk.Progressbar(login_root, mode="determinate", length=80, maximum=100)
-        def reset_orcid():
-            orcid_button.config(state="normal")
-            if 'login_button' in locals(): 
-                login_button.config(state="normal")
-            if 'register_button' in locals(): 
-                register_button.config(state="normal")
-            if 'auth0_button' in locals(): 
-                auth0_button.config(state="normal")
-            orcid_spinner["value"] = 0
-            orcid_spinner.pack_forget()
-            status_label.config(text="")
-        def run_orcid_progress(bar, orcid_process):
-            bar["value"] = 0
-            steps = 100
-            delay = 50  
-            def step():
-                if orcid_process.poll() is None: 
-                    bar["value"] = (bar["value"] + 1) % 100
-                    login_root.after(delay, step)
-                else:
-                    bar.pack_forget()
-                    orcid_button.config(state="normal")
-                    if 'login_button' in locals(): 
-                        login_button.config(state="normal")
-                    if 'register_button' in locals(): 
-                        register_button.config(state="normal")
-                    if 'auth0_button' in locals(): 
-                        auth0_button.config(state="normal")
-                    try:
-                        with open("orcid_result.json", "r") as f:
-                            data = json.load(f)
-                        if "orcid" in data:
-                            status_label.config(text=f"✅ ORCID login successful: {data['orcid']}")
-                            result["ok"] = True
-                            result["orcid"] = data["orcid"]
-                            login_root.after(1000, login_root.destroy)
-                        else:
-                            status_label.config(text="❌ ORCID login failed")
-                    except FileNotFoundError:
-                        status_label.config(text="❌ ORCID login failed (no result)")
-            step()
-        def on_orcid_login():
-            orcid_button.config(state="disabled")
-            if 'login_button' in locals(): 
-                login_button.config(state="disabled")
-            if 'register_button' in locals(): 
-                register_button.config(state="disabled")
-            if 'auth0_button' in locals(): 
-                auth0_button.config(state="disabled")
-            orcid_spinner.pack(pady=2)
-            status_label.config(text="🔑 Opening ORCID login...")
-            if getattr(sys, "frozen", False):
-                orcid_path = os.path.join(os.path.dirname(sys.executable), "run_orcid")
-                orcid_process = subprocess.Popen([orcid_path])
-            else:
-                orcid_path = os.path.join(os.path.abspath("."), "run_orcid.py")
-                orcid_process = subprocess.Popen([sys.executable, orcid_path])
-            run_orcid_progress(orcid_spinner, orcid_process)
-        orcid_button = tk.Button(login_root, text="Login with ORCID", command=on_orcid_login)
-        orcid_button.pack(pady=10)
-    if ENABLE_AUTH0:
-        # Auth0 login
-        def run_auth0_progress(bar, auth0_process):
-            bar["value"] = 0
-            steps = 100
-            delay = 50
-            def step():
-                if auth0_process.poll() is None:
-                    bar["value"] = (bar["value"] + 1) % 100
-                    login_root.after(delay, step)
-                else:
-                    bar.pack_forget()
-                    auth0_button.config(state="normal")
-                    if 'login_button' in locals(): 
-                        login_button.config(state="normal")
-                    if 'register_button' in locals(): 
-                        register_button.config(state="normal")
-                    if 'orcid_button' in locals(): 
-                        orcid_button.config(state="normal")
-                    try:
-                        with open("auth0_result.json", "r") as f:
-                            data = json.load(f)
-                        if "email" in data:
-                            status_label.config(text=f"✅ Auth0 login successful: {data['email']}")
-                            result["ok"] = True
-                            result["email"] = data["email"]
-                            login_root.after(1000, login_root.destroy)
-                        else:
-                            status_label.config(text="❌ Auth0 login failed")
-                    except FileNotFoundError:
-                        status_label.config(text="❌ Auth0 login failed (no result)")
-            step()
-        def on_auth0_login():
-            auth0_button.config(state="disabled")
-            if 'login_button' in locals():
-                login_button.config(state="disabled")
-            if 'register_button' in locals():
-                register_button.config(state="disabled")
-            if 'orcid_button' in locals():
-                orcid_button.config(state="disabled")
-            auth0_spinner.pack(pady=2)
-            status_label.config(text="🔑 Opening Auth0 login...")
-            if getattr(sys, "frozen", False):
-                auth0_path = os.path.join(os.path.dirname(sys.executable), "run_login_auth0_v1.0")
-                auth0_process = subprocess.Popen([auth0_path])
-            else:
-                auth0_path = os.path.join(os.path.abspath("."), "run_login_auth0_v1.0.py")
-                auth0_process = subprocess.Popen([sys.executable, auth0_path])
-            run_auth0_progress(auth0_spinner, auth0_process)
-        auth0_spinner = ttk.Progressbar(login_root, mode="determinate", length=80, maximum=100)
-        auth0_button = tk.Button(login_root, text="Login with Auth0", command=on_auth0_login)
-        auth0_button.pack(pady=10)
-    login_root.mainloop()
-    return result
-#login feedback
-result = show_login_window()
-if not result["ok"]:
-    sys.exit(0)  # exit if login fails
-if result.get("orcid"):
-    print("Logged in with ORCID:", result["orcid"])
-else:
-    print("Logged in with email:", result.get("email"))
-email = result["email"]  # falls du die Mail später im UI anzeigen willst
-# login (end) ==================================================
-'''
-
 # Path ==================================================
 if getattr(sys, 'frozen', False):
     APPDIR = sys._MEIPASS
@@ -1503,6 +1217,10 @@ root.config(menu=menubar)
 # About menu
 about_menu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="About", menu=about_menu)
+def resource_path(filename):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, filename)
+    return os.path.join(os.path.abspath("."), filename)
 ## About/Disclaimer
 def show_about_disclaimer():
     show_about = Toplevel(root)
@@ -1511,11 +1229,8 @@ def show_about_disclaimer():
     notebook = ttk.Notebook(show_about)
     notebook.pack(expand=True, fill=BOTH)
     info_files = {
-        "About": "ABOUT.txt",
-        "Disclaimer": "DISCLAIMER.txt",
-        "Terms of Use": "TERMS.txt",
-        "Privacy Policy": "PRIVACY.txt",
-        "Legal Notice": "LEGAL.txt"
+        "About": "ABOUT.md",
+        "Disclaimer": "DISCLAIMER.md"
     }
     for title, filename in info_files.items():
         frame = ttk.Frame(notebook)
@@ -1534,10 +1249,6 @@ def show_about_disclaimer():
 about_menu.add_command(label="About", command=show_about_disclaimer)
 
 # Licenses
-def resource_path(filename):
-    if hasattr(sys, "_MEIPASS"):
-        return os.path.join(sys._MEIPASS, filename)
-    return os.path.join(os.path.abspath("."), filename)
 def show_license():
     show_license = Toplevel(root)
     show_license.title("License")
@@ -1545,9 +1256,10 @@ def show_license():
     notebook = ttk.Notebook(show_license)
     notebook.pack(expand=True, fill=BOTH)
     license_files = {
-        "ConformationLabStudio (MIT)": "LICENSE_ConformationLabStudio.txt",
-        "ColabFold (Third-Party, MIT)": "LICENSE_ColabFold.txt",
-        "AlphaFold2 (Third-Party, Apache 2.0)": "LICENSE_AlphaFold2.txt",
+        "ConformationLabStudio (MIT)": "LICENSE_ConformationLabStudio.md",
+        "ColabFold (Third-Party, MIT)": "LICENSE_ColabFold.md",
+        "AlphaFold2 (Third-Party, Apache 2.0)": "LICENSE_AlphaFold2.md",
+        "Third Party Licenses": "THIRD_PARTY_LICENSES.md"
     }
     for title, filename in license_files.items():
         frame = ttk.Frame(notebook)
@@ -1568,6 +1280,12 @@ about_menu.add_command(label="Licenses", command=show_license)
 # Version Notes
 def show_version_notes():
     notes = """
+
+ConfigurationLab Studio v1.12.1 - 12.01.2026
+-----------------------------------
+- all third party licences added
+- login removed
+- Legal, Terms of Use and Privacy Policy removed
 
 ConfigurationLab Studio v1.12.1 - 03.01.2026
 -----------------------------------
@@ -1811,5 +1529,5 @@ python "/Users/spikemurphymuller/ConformationLabGeneration/ConformationLabStudio
 '''
 
 '''
-python '/Users/spikemurphymuller/Library/Mobile Documents/com~apple~CloudDocs/Spike/University/University of Hamburg/Medizinstudium/AG Prof. Dr. M. Jücker/Project_4_ConformationLab/Application Generation/Current version/ConformationLabStudio_v1.12.py'
+python '/Users/spikemurphymuller/Library/Mobile Documents/com~apple~CloudDocs/Spike/Work/Self-Employment/Murphy Medical Group/Murphy Biochemistry UG (haftungsbeschränkt)/Products/Desktop Applications/ConformationLabStudio/src/ConformationLabStudio.py'
 '''
