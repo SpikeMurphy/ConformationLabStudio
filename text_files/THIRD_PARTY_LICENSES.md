@@ -1,5 +1,8 @@
 # Third-Party Software
 
+This software bundles third-party components.
+Their respective licenses apply independently.
+
 This software makes use of the following third-party components:
 
 - AlphaFold2 – Apache License 2.0

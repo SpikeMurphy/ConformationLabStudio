@@ -205,6 +205,11 @@ The application prevents system sleep during long-running predictions.
 
 ## Version History
 
+### ConformationLab Studio v1.12.1 – 13.01.2026
+
+* all third party licenses added
+* repository cleanup
+
 ### ConformationLab Studio v1.12.1 – 03.01.2026
 
 * Migration to GitHub repositories

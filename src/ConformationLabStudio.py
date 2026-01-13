@@ -1,5 +1,5 @@
 APP_NAME = "ConformationLab Studio"
-APP_VERSION = "1.12.1"
+APP_VERSION = "1.12.2"
 APP_AUTHOR = "Spike Murphy Müller"
 
 # imports ==================================================
@@ -1281,15 +1281,16 @@ about_menu.add_command(label="Licenses", command=show_license)
 def show_version_notes():
     notes = """
 
-ConfigurationLab Studio v1.12.1 - 12.01.2026
+ConfigurationLab Studio v1.12.2 - 12.01.2026
 -----------------------------------
-- all third party licences added
-- login removed
+- all third party licenses added
+- login code residues removed
 - Legal, Terms of Use and Privacy Policy removed
+- repository cleanup
 
 ConfigurationLab Studio v1.12.1 - 03.01.2026
 -----------------------------------
-- migration to github repositories
+- migration to github repository
 
 ConfigurationLab Studio v1.12.0 - xx.10.2025
 -----------------------------------
