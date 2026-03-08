@@ -1,11 +1,9 @@
 # build outputs
 dist/
+environment/
 *.app
 *.dmg
 *.tar.gz
-
-# pyinstaller
-*.spec
 
 # python cache
 __pycache__/
@@ -15,9 +13,6 @@ __pycache__/
 # macOS
 .DS_Store
 
-# instructions
-instructions/
-
 # R
 .Rhistory
 
@@ -26,7 +21,6 @@ assisting_scripts/GoogleAppSkript
 assisting_scripts/run_login_auth0_v1.0.py
 assisting_scripts/run_login_orcid_v1.0.py
 build/AppPackageGenerationInstruction(old).txt
-assisting_scripts/run_login_auth0_v1.0.py
 
 # other
 CS50p_introduction.html

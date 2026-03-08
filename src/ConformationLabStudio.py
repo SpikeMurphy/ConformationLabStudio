@@ -26,7 +26,10 @@ from tkinter.ttk import Progressbar, Notebook
 import webbrowser
 
 
-### classes ###
+# =================================================== #
+# ===== CLASSES ===================================== #
+# =================================================== #
+
 class ToolTip:
     # TODO: redo
     def __init__(self, widget, text):
