@@ -1,0 +1,2 @@
+ConformationLabIcon.icns & ConformationLabLogo.png:
+    Fleming J. et al. AlphaFold Protein Structure Database and 3D-Beacons: New Data and Capabilities. Journal of Molecular Biology, (2025)

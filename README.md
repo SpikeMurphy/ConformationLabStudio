@@ -1,6 +1,7 @@
 # ConformationLab Studio
 
 > **Built for learning, inspired by science.**
+> Submitted as Final Project in **Harvard University's CS50 Python: Introduction to Programming with Python**.
 
 ConformationLab Studio is a desktop application for exploring **protein structure prediction** using **ColabFold / AlphaFold-based workflows** through a graphical user interface.
 
@@ -16,6 +17,7 @@ The application is written in **Python**, built with **Tkinter**, bundled using 
 * [Motivation & Scope](#motivation--scope)
 * [Key Features](#key-features)
 * [Technology Stack](#technology-stack)
+* [Use in Academia](#use-in-academia)
 * [Application Architecture](#application-architecture)
 * [Installation (Users)](#installation-users)
 * [Installation (Developers / Build Process)](#installation-developers--build-process)
@@ -25,6 +27,7 @@ The application is written in **Python**, built with **Tkinter**, bundled using 
 * [Disclaimer](#disclaimer)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
+* [Distribution](#distribution)
 
 ---
 
@@ -65,7 +68,6 @@ The project reflects an ongoing learning process and will continue to evolve ove
 * Automatic extraction and setup of a bundled Conda environment
 * Support for **monomer and multimer predictions**
 * Configurable parameters:
-
   * Seeds & random seeds
   * Model selection
   * Recycles and early stopping
@@ -77,29 +79,29 @@ The project reflects an ongoing learning process and will continue to evolve ove
 * Live status updates and progress indicators
 * CPU & RAM monitoring
 * Light / Dark mode auto-detection (system-based)
-* Integrated:
-
-  * About
-  * Disclaimer
-  * Terms of Use
-  * Privacy Policy
-  * Legal Notice
-  * License viewer
 * Process control (start / cancel)
+
+[Video Demo]()
+
+---
+
+## Use in Academia
+
+* Use in academia is explicitly encouraged.
+* This application can be used to introduce students to modern protein structure prediction workflows and computational biology tools.
+* It provides a simplified interface that allows students to explore sequence-based structure prediction without requiring extensive command-line experience.
 
 ---
 
 ## Technology Stack
 
 * **Language:** Python 3.10
-* **GUI:** Tkinter (ttk)
+* **GUI:** Tkinter/Tkinter.tkk
 * **Scientific Backend:**
-
   * ColabFold
   * AlphaFold2 (via ColabFold)
   * JAX (CPU-only)
 * **Packaging:**
-
   * Conda / Conda-Pack
   * PyInstaller
 * **Visualization:** Mol* Viewer (via pywebview)
@@ -142,9 +144,9 @@ Key design decisions:
 ### macOS
 
 1. Download the latest **ConformationLab Studio `.dmg`** from:
-
-   * Official website **or**
-   * GitHub Releases
+    * [Official website](https://murphy-biochemistry.github.io/ConformationLabWeb/en/) **or**
+    * [GitHub Releases](https://github.com/SpikeMurphy/ConformationLabStudio/releases)
+    > *or build from scratch as detailed below*
 2. Open the `.dmg`
 3. Drag **ConformationLab Studio** into the **Applications** folder
 4. Launch the application
@@ -173,18 +175,13 @@ ConformationLab_env_Generator.sh
 
 This script:
 
-* Creates a Conda environment (`conflab`)
+* Creates a Conda environment `conflab`
 * Installs ColabFold with AlphaFold support
 * Pins compatible scientific library versions
 * Installs GUI dependencies
 * Packs the environment using `conda-pack`
-* Prepares all required files for PyInstaller
-
-### Application Build
-
-1. Activate the environment
-2. Run PyInstaller using the provided `.spec` file
-3. Bundle the application into a `.dmg`
+* Promts file organisation
+* Runs PyInstaller using the provided `ConformationLabStudio.spec` file
 
 The final deliverable is a **one-file macOS application** with an embedded environment.
 
@@ -204,6 +201,15 @@ The application prevents system sleep during long-running predictions.
 ---
 
 ## Version History
+
+### ConfigurationLab Studio v1.14.0 - 08.03.2026
+
+* code restructured for better maintainability (main/helpers)
+* code clean-up and commenting
+* better error handling
+* better variables handling
+* introduction of shortcuts
+* testing implementation
 
 ### ConformationLab Studio v1.12.1 – 13.01.2026
 
@@ -288,3 +294,11 @@ It provides a graphical user interface and execution environment for them.
 ---
 
 © 2025 Spike Murphy Müller · Licensed under the MIT License
+
+---
+
+## Distribution
+
+This Application will be distributed by Murphy Biochemistry UG (haftungsbeschränkt) i.G.
+
+[ConformationLab Web Companion Webpage](https://murphy-biochemistry.github.io/ConformationLabWeb/en/)

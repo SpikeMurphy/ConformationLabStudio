@@ -12,7 +12,7 @@ This software makes use of the following third-party components:
 - [NumPy – BSD 3-Clause](https://github.com/numpy/numpy.org/blob/main/LICENSE)
 - [SciPy – BSD 3-Clause](https://github.com/scipy/scipy/blob/main/LICENSE.txt)
 - psutil – BSD 3-Clause
-- [Mol* Viewer – MIT License](https://github.com/molstar/mol-view-spec/blob/master/LICENSE)
+- [Mol* Viewer – MIT License](https://github.com/molstar/molstar?tab=MIT-1-ov-file)
 - [pywebview – BSD 3-Clause License](https://github.com/r0x0r/pywebview/blob/master/LICENSE)
 - [Python – PSF License](https://docs.python.org/3/license.html)
 - [Tkinter – PSF License (part of python standard library)](https://docs.python.org/3/license.html)

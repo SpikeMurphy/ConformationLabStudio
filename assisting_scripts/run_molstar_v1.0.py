@@ -1,3 +1,4 @@
+from AppKit import NSScreen
 from tkinter import *
 import webview # Mol*Viewer
 
@@ -8,7 +9,6 @@ def get_centered_geometry(scale=0.8):
     tmp_root.update_idletasks()
     try:
         # macOS: verfügbare Fläche ohne Menü/Dock
-        from AppKit import NSScreen
         frame = NSScreen.mainScreen().visibleFrame()
         screen_width = int(frame.size.width)
         screen_height = int(frame.size.height)
@@ -28,7 +28,7 @@ def main():
     window_width, window_height, window_x, window_y = get_centered_geometry(0.9)
 
     webview.create_window(
-        title="ConformationLab Studio Mol*Viewer",
+        title="ConformationLab Studio Mol* Viewer",
         url="https://molstar.org/viewer/",
         width=window_width,
         height=window_height,
