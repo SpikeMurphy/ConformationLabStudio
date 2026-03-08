@@ -18,6 +18,9 @@ __pycache__/
 # instructions
 instructions/
 
+# R
+.Rhistory
+
 # old deprecated files
 assisting_scripts/GoogleAppSkript
 assisting_scripts/run_login_auth0_v1.0.py

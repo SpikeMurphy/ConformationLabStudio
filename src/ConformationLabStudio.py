@@ -2364,26 +2364,101 @@ ConformationLabStudio.py
 │   └── ToolTip
 │
 ├── MAIN PROGRAM
+│   ├── main()
 │   ├── initialize process
 │   ├── create Tkinter window
 │   ├── build UI layout
 │   ├── build BASIC mode widgets
+│   │   └── build_basic_mode()
 │   ├── build ADVANCED mode widgets
+│   │   └── build_advanced_mode()
 │   ├── create buttons
+│   │   ├── build_run_button()
+│   │   ├── build_clear_button()
+│   │   ├── build_cancel_button()
+│   │   └── build_molstar_button()
 │   ├── store everything in a shared "state" dictionary
 │   └── start GUI event loop
 │
 ├── HELPER FUNCTIONS
 │   ├── UI configuration
+│   │   ├── configure_grid()
+│   │   ├── get_centered_geometry()
+│   │   ├── configure_header_frame()
+│   │   ├── configure_footer()
+│   │   ├── configure_scrollable_frame()
+│   │   ├── on_frame_configure()
+│   │   └── on_canvas_configure()
+│   │
 │   ├── scrolling
+│   │   └── on_global_mousewheel()
+│   │
 │   ├── path selection dialogs
+│   │   ├── get_app_paths()
+│   │   ├── create_path_selectors()
+│   │   └── resource_path()
+│   │
 │   ├── environment setup
+│   │   └── ensure_conflab_env()
+│   │
+│   ├── validation
+│   │   └── create_validation_commands()
+│   │
 │   ├── widget builders
-│   └── button callbacks
+│   │   ├── build_output_wiget()
+│   │   ├── build_status_frame()
+│   │   ├── build_loading_frame()
+│   │   └── advanced_toggle()
+│   │
+│   ├── UI effects
+│   │   ├── apply_hover_effect()
+│   │   └── hover_effect()
+│   │
+│   ├── keyboard shortcuts
+│   │   ├── bind_shortcuts()
+│   │   ├── shortcut_browse_input()
+│   │   ├── shortcut_browse_output()
+│   │   ├── shortcut_toggle_advanced()
+│   │   ├── shortcut_run()
+│   │   ├── shortcut_cancel()
+│   │   ├── shortcut_clear()
+│   │   └── shortcut_molviewer()
+│   │
+│   ├── shortcut overlay
+│   │   ├── create_shortcut_overlay()
+│   │   └── bind_shortcut_overlay()
+│   │
+│   ├── menu bar
+│   │   ├── build_menubar()
+│   │   ├── configure_about()
+│   │   ├── configure_system()
+│   │   └── configure_help()
+│   │
+│   └── system / theme
+│       ├── is_dark_mode()
+│       └── update_theme()
 │
 └── PROCESS CONTROL
-    ├── run_button_command()
-    ├── cancel_process()
-    └── output + loading utilities
-    
+    │
+    ├── run button workflow
+    │   ├── run_button_command()
+    │   └── run_process()
+    │
+    ├── cancel workflow
+    │   ├── build_cancel_button()
+    │   └── cancel_process()
+    │
+    ├── output utilities
+    │   ├── write_output()
+    │   └── safe_status_update()
+    │
+    ├── loading animation
+    │   ├── start_loading_animation()
+    │   └── stop_loading_animation()
+    │
+    ├── molviewer
+    │   └── molstar_button_command()
+    │
+    └── shutdown
+        └── on_closing()
 '''

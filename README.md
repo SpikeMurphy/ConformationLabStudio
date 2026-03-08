@@ -16,18 +16,18 @@ The application is written in **Python**, built with **Tkinter**, bundled using 
 * [About the Project](#about-the-project)
 * [Motivation & Scope](#motivation--scope)
 * [Key Features](#key-features)
-* [Technology Stack](#technology-stack)
+* [Usage Overview](#usage-overview)
 * [Use in Academia](#use-in-academia)
+* [Technology Stack](#technology-stack)
 * [Application Architecture](#application-architecture)
 * [Installation (Users)](#installation-users)
 * [Installation (Developers / Build Process)](#installation-developers--build-process)
-* [Usage Overview](#usage-overview)
 * [Version History](#version-history)
+* [Acknowledgements](#acknowledgements)
 * [Licensing](#licensing)
 * [Disclaimer](#disclaimer)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
 * [Distribution](#distribution)
+* [Contact](#contact)
 
 ---
 
@@ -81,6 +81,19 @@ The project reflects an ongoing learning process and will continue to evolve ove
 * Light / Dark mode auto-detection (system-based)
 * Process control (start / cancel)
 
+---
+
+## Usage Overview
+
+1. Select an **input FASTA file**
+2. Choose an **output directory**
+3. Configure prediction parameters (Basic or Advanced mode)
+4. Click **Run**
+5. Monitor progress and system usage
+6. View results or open structures in **Mol*** Viewer
+
+The application prevents system sleep during long-running predictions.
+
 [Video Demo]()
 
 ---
@@ -111,28 +124,123 @@ The project reflects an ongoing learning process and will continue to evolve ove
 
 ## Application Architecture
 
-High-level architecture:
-
 ```
-GUI (Tkinter)
-   │
-   ├── Parameter Handling
-   ├── Status & Logging
-   ├── Process Control
-   │
-   └── Subprocess Execution
-           │
-           └── conflab_batch (ColabFold wrapper)
+ConformationLabStudio.py
+│
+├── Todos
+│
+├── APP_NAME, APP_VERSION, APP_AUTHOR
+│
+├── Imports
+│
+├── Classes
+│   └── ToolTip
+│
+├── MAIN PROGRAM: main()
+│   ├── initialize process
+│   ├── create Tkinter window
+│   ├── build UI layout
+│   ├── build BASIC mode widgets
+│   │   └── build_basic_mode()
+│   ├── build ADVANCED mode widgets
+│   │   └── build_advanced_mode()
+│   ├── create buttons
+│   │   ├── build_run_button()
+│   │   ├── build_clear_button()
+│   │   ├── build_cancel_button()
+│   │   └── build_molstar_button()
+│   ├── store everything in a shared "state" dictionary
+│   └── start GUI event loop
+│
+├── HELPER FUNCTIONS
+│   ├── UI configuration
+│   │   ├── configure_grid()
+│   │   ├── get_centered_geometry()
+│   │   ├── configure_header_frame()
+│   │   ├── configure_footer()
+│   │   ├── configure_scrollable_frame()
+│   │   ├── on_frame_configure()
+│   │   └── on_canvas_configure()
+│   │
+│   ├── scrolling
+│   │   └── on_global_mousewheel()
+│   │
+│   ├── path selection dialogs
+│   │   ├── get_app_paths()
+│   │   ├── create_path_selectors()
+│   │   └── resource_path()
+│   │
+│   ├── environment setup
+│   │   └── ensure_conflab_env()
+│   │
+│   ├── validation
+│   │   └── create_validation_commands()
+│   │
+│   ├── widget builders
+│   │   ├── build_output_wiget()
+│   │   ├── build_status_frame()
+│   │   ├── build_loading_frame()
+│   │   └── advanced_toggle()
+│   │
+│   ├── UI effects
+│   │   ├── apply_hover_effect()
+│   │   └── hover_effect()
+│   │
+│   ├── keyboard shortcuts
+│   │   ├── bind_shortcuts()
+│   │   ├── shortcut_browse_input()
+│   │   ├── shortcut_browse_output()
+│   │   ├── shortcut_toggle_advanced()
+│   │   ├── shortcut_run()
+│   │   ├── shortcut_cancel()
+│   │   ├── shortcut_clear()
+│   │   └── shortcut_molviewer()
+│   │
+│   ├── shortcut overlay
+│   │   ├── create_shortcut_overlay()
+│   │   └── bind_shortcut_overlay()
+│   │
+│   ├── menu bar
+│   │   ├── build_menubar()
+│   │   ├── configure_about()
+│   │   ├── configure_system()
+│   │   └── configure_help()
+│   │
+│   └── system / theme
+│       ├── is_dark_mode()
+│       └── update_theme()
+│
+└── PROCESS CONTROL
+    │
+    ├── run button workflow
+    │   ├── run_button_command()
+    │   └── run_process()
+    |       └── Subprocess Execution
+    |           └── conflab_batch (ColabFold wrapper)
+    │
+    ├── cancel workflow
+    │   ├── build_cancel_button()
+    │   └── cancel_process()
+    │
+    ├── output utilities
+    │   ├── write_output()
+    │   └── safe_status_update()
+    │
+    ├── loading animation
+    │   ├── start_loading_animation()
+    │   └── stop_loading_animation()
+    │
+    ├── molviewer
+    │   └── molstar_button_command()
+    │
+    └── shutdown
+        └── on_closing()
 ```
 
 Key design decisions:
 
 * The Conda environment is **packed into a tar.gz archive**
-* On first launch, the environment is **automatically extracted** into:
-
-```
-~/Library/Application Support/ConfLabEnv
-```
+* On first launch, the environment is **automatically extracted** into: ```~/Library/Application Support/ConfLabEnv```
 
 * All predictions run inside this isolated environment
 * No system-wide Python or Conda installation is required for end users
@@ -167,11 +275,7 @@ Key design decisions:
 
 ### Environment Generation (Automated)
 
-An automated shell script is provided:
-
-```
-ConformationLab_env_Generator.sh
-```
+An automated shell script is provided: [```ConformationLab_env_Generator.sh```](https://github.com/SpikeMurphy/ConformationLabStudio/tree/main/build)
 
 This script:
 
@@ -187,90 +291,9 @@ The final deliverable is a **one-file macOS application** with an embedded envir
 
 ---
 
-## Usage Overview
-
-1. Select an **input FASTA file**
-2. Choose an **output directory**
-3. Configure prediction parameters (Basic or Advanced mode)
-4. Click **Run**
-5. Monitor progress and system usage
-6. View results or open structures in **Mol***
-
-The application prevents system sleep during long-running predictions.
-
----
-
 ## Version History
 
-### ConfigurationLab Studio v1.14.0 - 08.03.2026
-
-* code restructured for better maintainability (main/helpers)
-* code clean-up and commenting
-* better error handling
-* better variables handling
-* introduction of shortcuts
-* testing implementation
-
-### ConformationLab Studio v1.12.1 – 13.01.2026
-
-* all third party licenses added
-* repository cleanup
-
-### ConformationLab Studio v1.12.1 – 03.01.2026
-
-* Migration to GitHub repositories
-
-### v1.12.0 – 10.2025
-
-* Mol* button fixes
-* Improved status color updates
-* Elapsed time reporting
-
-### v1.11.0 – 13.10.2025
-
-* Light/Dark mode integration
-* About, Disclaimer, Terms, Privacy, Legal sections added
-* Advanced mode introduced
-* Sleep prevention during predictions
-
-### v1.10.0 – 04.10.2025
-
-* UI cleanup and visual improvements
-* Status box and synchronized logging
-* License viewer added
-
-### v1.9.0 – 03.10.2025
-
-* Rebranding to ConformationLab Studio
-* New parameters and output controls
-* Auth0 login integration
-
-### Earlier Versions (ShipFold Studio)
-
-* Progressive alpha development
-* GUI foundations, scrolling, tooltips, Mol* integration
-
----
-
-## Licensing
-
-* **ConformationLab Studio:** MIT License
-* **ColabFold:** MIT License (Third-party)
-* **AlphaFold2:** Apache License 2.0 (Third-party)
-
-See the included license files for full texts.
-
----
-
-## Disclaimer
-
-This software is provided **for educational and research purposes only**.
-
-* No guarantee of correctness or suitability
-* Not intended for clinical, diagnostic, or commercial use
-* Predictions should always be validated independently
-
-Use at your own risk.
+A detailled version history is available in the text files under: [VERSIONS.md](https://github.com/SpikeMurphy/ConformationLabStudio/blob/main/text_files/VERSIONS.md)
 
 ---
 
@@ -286,14 +309,29 @@ It provides a graphical user interface and execution environment for them.
 
 ---
 
-## Contact
+## Licensing
 
-**Author:** Spike Murphy Müller  
-**Email:** [conformationlab@gmail.com](mailto:conformationlab@gmail.com)
+* **ConformationLab Studio:** MIT License
+* **ColabFold:** MIT License (Third-party)
+* **AlphaFold2:** Apache License 2.0 (Third-party)
+
+See the included license files in the [text files](https://github.com/SpikeMurphy/ConformationLabStudio/blob/main/text_files/) for full texts and other third-party licenses.
 
 ---
 
 © 2025 Spike Murphy Müller · Licensed under the MIT License
+
+---
+
+## Disclaimer
+
+This software is provided **for educational and research purposes only**.
+
+* No guarantee of correctness or suitability
+* Not intended for clinical, diagnostic, or commercial use
+* Predictions should always be validated independently
+
+Use at your own risk.
 
 ---
 
@@ -302,3 +340,10 @@ It provides a graphical user interface and execution environment for them.
 This Application will be distributed by Murphy Biochemistry UG (haftungsbeschränkt) i.G.
 
 [ConformationLab Web Companion Webpage](https://murphy-biochemistry.github.io/ConformationLabWeb/en/)
+
+---
+
+## Contact
+
+**Author:** Spike Murphy Müller  
+**Email:** [conformationlab@gmail.com](mailto:conformationlab@gmail.com)
