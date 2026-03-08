@@ -158,6 +158,7 @@ cat <<EOF
    - THIRD_PARTY_LICENSES.md
    - ABOUT.md
    - DISCLAIMER.md
+   - VERSIOND.md
 
 EOF
 
@@ -185,6 +186,7 @@ while true; do
         "THIRD_PARTY_LICENSES.md"
         "ABOUT.md"
 	    "DISCLAIMER.md"
+        "VERSIONS.md"
     )
     missing_files=()
     for file in "${required_files[@]}"; do

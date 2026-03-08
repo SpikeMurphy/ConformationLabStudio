@@ -14,6 +14,7 @@ a = Analysis(
 	('LICENSE_ColabFold.md', '.'),
 	('LICENSE_AlphaFold2.md', '.'),
 	('THIRD_PARTY_LICENSES.md', '.'),
+    ('VERSIONS.md', '.'),
     ],
     hiddenimports=[],
     hookspath=[],

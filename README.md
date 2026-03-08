@@ -293,9 +293,9 @@ Some **statistical analysis** was performed using this application for testing p
 "Benchmarking with an **increasing number of recycles** demonstrated a **linear increase in runtime**.
 This predictable scaling allows users to balance model accuracy and runtimes for their specific use cases."
 
-<img alt="absolute time per recycle" src="stats/t_per_recycle1.png" style="max-width:600px;">
+<img alt="absolute time per recycle" src="stats/t_per_recycle1.png" style="max-width:400px;">
 
-<img alt="relative time per recycle" src="stats/t_per_recycle2.png" style="max-width:600px;">
+<img alt="relative time per recycle" src="stats/t_per_recycle2.png" style="max-width:400px;">
 
 "All shown benchmarks were conducted on entry-level equipment featuring Apple M1 or M3 chips, with a runtime difference of approximately 30 % observed between the devices.
 Intel-based systems also delivered acceptable performance when running predictions through the application."
