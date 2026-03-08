@@ -284,14 +284,20 @@ The ```src``` folder includes the main script and a test script.
 
 Some **statistical analysis** was performed using this application for testing purposes:
 
-"Results show a **near-quadratic relationship** between **sequence length** and average **runtime per model** (y = a × xb, with b ≈ 2, p < 2 × 10-16, ***), consistent with theoretical expectations for multiple-sequence alignment and model inference complexity.
+"Results show a **near-quadratic relationship** between **sequence length** and average **runtime per model** (y = a × xb, with b ≈ 2, p < 2 × 10-16, ***), consistent with theoretical expectations for multiple-sequence alignment and model inference complexity."
 
-The tasks can be executed in the background, with light activities such as video playback, text editing, or web browsing having no significant impact on runtimes.
+<img alt="time per protein sequence length" src="stats/t_per_length.png" style="max-width:600px;">
 
-Benchmarking with an **increasing number of recycles** demonstrated a **linear increase in runtime**.
-This predictable scaling allows users to balance model accuracy and runtimes for their specific use cases.
+"The tasks can be executed in the background, with light activities such as video playback, text editing, or web browsing having no significant impact on runtimes."
 
-All shown benchmarks were conducted on entry-level equipment featuring Apple M1 or M3 chips, with a runtime difference of approximately 30 % observed between the devices.
+"Benchmarking with an **increasing number of recycles** demonstrated a **linear increase in runtime**.
+This predictable scaling allows users to balance model accuracy and runtimes for their specific use cases."
+
+<img alt="absolute time per recycle" src="stats/t_per_recycle1.png" style="max-width:600px;">
+
+<img alt="relative time per recycle" src="stats/t_per_recycle2.png" style="max-width:600px;">
+
+"All shown benchmarks were conducted on entry-level equipment featuring Apple M1 or M3 chips, with a runtime difference of approximately 30 % observed between the devices.
 Intel-based systems also delivered acceptable performance when running predictions through the application."
 
 [Müller, S.M. Installation and Execution of ColabFold with AlphaFold2 for Local Protein Structure Predictions on Apple Devices. Presented at the Signal Transduction Society’s 28th Meeting on Signal Transduction CellCommSummit 2025, 2025.](https://www.zotero.org/spikemurphy)
