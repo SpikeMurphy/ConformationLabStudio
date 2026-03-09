@@ -95,7 +95,7 @@ The project reflects an ongoing learning process and will continue to evolve ove
 
 The application prevents system sleep during long-running predictions.
 
-[Video Demo]()
+[Video Demo](https://youtu.be/02Yq6rg9Wq0)
 
 ---
 

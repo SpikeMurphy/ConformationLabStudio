@@ -1,5 +1,9 @@
 ## Version History
 
+### ConfigurationLab Studio v1.14.1 – 09.03.2026
+
+* small bug fix which crashed the thread
+
 ### ConfigurationLab Studio v1.14.0 – 08.03.2026
 
 * code restructured for better maintainability (main/helpers)

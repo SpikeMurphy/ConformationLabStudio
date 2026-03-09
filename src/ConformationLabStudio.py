@@ -8,7 +8,7 @@ APP_VERSION = "1.14.0"
 APP_AUTHOR = "Spike Murphy Müller"
 
 ### imports ###
-from AppKit import NSScreen
+# from AppKit import NSScreen
 import itertools
 from logging import root
 import os
@@ -364,11 +364,21 @@ def get_centered_geometry(scale=0.9):
     if not 0 < scale <= 1:
         raise ValueError("scale must be between 0 (not visible) and 1 (full screen)")
     
-    # Use AppKit to get the visible screen area.
-    frame = NSScreen.mainScreen().visibleFrame()
-    # Calculate window size
-    screen_width = int(frame.size.width)
-    screen_height = int(frame.size.height)
+    try:
+        from AppKit import NSScreen
+        # Use AppKit to get the visible screen area.
+        frame = NSScreen.mainScreen().visibleFrame()
+        # Calculate window size
+        screen_width = int(frame.size.width)
+        screen_height = int(frame.size.height)
+    except Exception:
+         # Fallback
+        tmp_root = Tk()
+        tmp_root.withdraw()
+        tmp_root.update_idletasks()
+        screen_width = tmp_root.winfo_screenwidth()
+        screen_height = tmp_root.winfo_screenheight()
+        tmp_root.destroy()
     # Adjust window size based on scale
     window_width = int(screen_width * scale)
     window_height = int(screen_height * scale)
@@ -1667,7 +1677,7 @@ def run_button_command(state):
     state['cancel_button'].config(state="normal")
 
     # Start thread
-    Thread(target=run_process, args=(s,), daemon=True).start()
+    Thread(target=run_process, args=(state,), daemon=True).start()
 
 def run_process(state):
     '''
