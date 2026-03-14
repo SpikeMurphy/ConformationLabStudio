@@ -317,10 +317,7 @@ Many of those files are used while building the application and are accessible v
 ### macOS
 
 1. Download the latest **ConformationLab Studio `.dmg`** from:
-    * [Official website](https://murphy-biochemistry.github.io/ConformationLabWeb/en/) **or**
     * [GitHub Releases](https://github.com/SpikeMurphy/ConformationLabStudio/releases)
-    > [!CAUTION]
-    > *or build from scratch as detailed below*
 2. Open the `.dmg`
 3. Drag **ConformationLab Studio** into the **Applications** folder
 4. Launch the application
@@ -392,13 +389,14 @@ See the included license files in the [text files](https://github.com/SpikeMurph
 
 ## Disclaimer
 
-This software is provided **for educational and research purposes only**.
-
-* No guarantee of correctness or suitability
-* Not intended for clinical, diagnostic, or commercial use
-* Predictions should always be validated independently
-
-Use at your own risk.
+> [!WARNING]
+> This software is provided **for educational and research purposes only**.
+>
+> * No guarantee of correctness or suitability
+> * Not intended for clinical, diagnostic, or commercial use
+> * Predictions should always be validated independently
+> 
+> Use at your own risk.
 
 ---
 
