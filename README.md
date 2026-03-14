@@ -319,6 +319,7 @@ Many of those files are used while building the application and are accessible v
 1. Download the latest **ConformationLab Studio `.dmg`** from:
     * [Official website](https://murphy-biochemistry.github.io/ConformationLabWeb/en/) **or**
     * [GitHub Releases](https://github.com/SpikeMurphy/ConformationLabStudio/releases)
+    > [!CAUTION]
     > *or build from scratch as detailed below*
 2. Open the `.dmg`
 3. Drag **ConformationLab Studio** into the **Applications** folder
@@ -330,7 +331,8 @@ Many of those files are used while building the application and are accessible v
 
 ## Installation (Developers / Build Process)
 
-> **Note:** This section is intended for developers and maintainers only.
+> [!CAUTION]
+> This section is intended for developers and maintainers only.
 
 ### Prerequisites
 
