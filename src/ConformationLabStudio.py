@@ -2,9 +2,34 @@
 # TODO: add more print statements to see in terminal what happens inside the app
 # TODO: load best fitting file into mol* viewer when finished using URL
     # example to load local pdb: http://localhost:8000/?structure-url=myprotein.pdb&structure-url-format=pdb
+# TODO: handle failing amber relaxation (see if processes afterwards are stopped, like ranking or generating names according to ranking): 
+'''
+Traceback (most recent call last):
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/bin/conflab_batch", line 7, in <module>
+sys.exit(main())
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/colabfold/batch.py", line 2031, in main
+run(
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/colabfold/batch.py", line 1569, in run
+results = predict_structure(
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/colabfold/batch.py", line 517, in predict_structure
+pdb_lines = relax_me(
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/colabfold/relax.py", line 30, in relax_me
+relaxed_pdb_lines, _, _ = amber_relaxer.process(prot=pdb_obj)
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/alphafold/relax/relax.py", line 62, in process
+out = amber_minimize.run_pipeline(
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/alphafold/relax/amber_minimize.py", line 476, in run_pipeline
+ret = _run_one_iteration(
+File "/Users/spikemurphymuller/Library/Application Support/ConfLabEnv/lib/python3.10/site-packages/alphafold/relax/amber_minimize.py", line 420, in _run_one_iteration
+raise ValueError(f"Minimization failed after {max_attempts} attempts.")
+ValueError: Minimization failed after 100 attempts.
+Finished with code 1
+Run failed after 1h 13m 49s
+'''
+# TODO: Update log file, e.g. include batch command, and ranking, remove unnecessary output.
+# TODO: Update error handling, reset status update colors (currently remain red)
 
 APP_NAME = "ConformationLab Studio"
-APP_VERSION = "1.14.0"
+APP_VERSION = "1.0.1"
 APP_AUTHOR = "Spike Murphy Müller"
 
 ### imports ###
