@@ -965,9 +965,9 @@ menubar.add_cascade(label="Help", menu=help_menu)
 # Version Notes
 def show_version_notes():
     notes = """
-ConfigurationLab Studio v1.9.0 - 03.10.2025
+ConformationLab Studio v1.9.0 - 03.10.2025
 -----------------------------------
-- Rebranding to ConfigurationLab Studio
+- Rebranding to ConformationLab Studio
     
 ShipFold Studio v1.8.0 – 01.10.2025
 -----------------------------------

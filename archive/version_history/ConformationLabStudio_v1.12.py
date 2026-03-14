@@ -1564,13 +1564,13 @@ about_menu.add_command(label="Licenses", command=show_license)
 # Version Notes
 def show_version_notes():
     notes = """
-ConfigurationLab Studio v1.12.0 - xx.10.2025
+ConformationLab Studio v1.12.0 - xx.10.2025
 -----------------------------------
 - fixing mol* button
 - status update colors
 - elepsed time remark added
 
-ConfigurationLab Studio v1.11.0 - 13.10.2025
+ConformationLab Studio v1.11.0 - 13.10.2025
 -----------------------------------
 - automatic implementation with system light/dark mode improvement
 - about added
@@ -1582,7 +1582,7 @@ ConfigurationLab Studio v1.11.0 - 13.10.2025
 - correction of advanced grid remove/show
 - not entering sleep mode while running predictions implemented
 
-ConfigurationLab Studio v1.10.0 - 04.10.2025
+ConformationLab Studio v1.10.0 - 04.10.2025
 -----------------------------------
 - code clean-up
 - button section frames
@@ -1597,9 +1597,9 @@ ConfigurationLab Studio v1.10.0 - 04.10.2025
 - window geometry fix for root & version note & licenses
 - test status update syncronised with message box
 
-ConfigurationLab Studio v1.9.0 - 03.10.2025
+ConformationLab Studio v1.9.0 - 03.10.2025
 -----------------------------------
-- Rebranding to ConfigurationLab Studio
+- Rebranding to ConformationLab Studio
 - new ordering and sectioning for parameters
 - three new parameters introduced (--recycle-early-stop-tolerance ,--overwrite-existing-results ,--zip)
 - more parameters prepared to introduce with advanced module

@@ -1190,9 +1190,9 @@ menubar.add_cascade(label="Help", menu=help_menu)
 # Version Notes
 def show_version_notes():
     notes = """
-ConfigurationLab Studio v1.9.0 - 03.10.2025
+ConformationLab Studio v1.9.0 - 03.10.2025
 -----------------------------------
-- Rebranding to ConfigurationLab Studio
+- Rebranding to ConformationLab Studio
 - new ordering and sectioning for parameters
 - three new parameters introduced (--recycle-early-stop-tolerance ,--overwrite-existing-results ,--zip)
 - more parameters prepared to introduce with advanced module

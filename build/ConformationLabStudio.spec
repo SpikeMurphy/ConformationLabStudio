@@ -79,7 +79,7 @@ app = BUNDLE(
     exe2,
     name='ConformationLabStudio.app',
     icon='ConformationLabIcon.icns',
-    bundle_identifier='org.configurationlab.studio',
+    bundle_identifier='org.conformationlab.studio',
     info_plist={
         'CFBundleName': 'ConformationLabStudio',
         'CFBundleDisplayName': 'ConformationLabStudio',
