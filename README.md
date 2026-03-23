@@ -1,5 +1,7 @@
 # ConformationLab Studio
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19171587.svg)](https://doi.org/10.5281/zenodo.19171587)
+
 > **Built for learning, inspired by science.**
 > Submitted as Final Project in **Harvard University's CS50 Python: Introduction to Programming with Python**.
 
