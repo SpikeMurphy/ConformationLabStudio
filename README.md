@@ -383,7 +383,7 @@ See the included license files in the [text files](https://github.com/SpikeMurph
 
 ---
 
-© 2025 Spike Murphy Müller · Licensed under the MIT License
+© 2026 Spike Murphy Müller · Licensed under the MIT License
 
 ---
 
@@ -405,6 +405,14 @@ See the included license files in the [text files](https://github.com/SpikeMurph
 This Application will be distributed by Murphy Biochemistry UG (haftungsbeschränkt) i.G.
 
 [ConformationLab Web Companion Webpage](https://murphy-biochemistry.github.io/ConformationLabWeb/en/)
+
+---
+
+## Citation
+
+Müller, S.M. (2026). ConformationLab Studio (Version 1.0.1) [Python; macOS]. Available online:
+[https://github.com/SpikeMurphy/ConformationLabStudio/releases/tag/v1.14.1](https://github.com/SpikeMurphy/ConformationLabStudio/releases/tag/v1.14.1). Source code:
+[https://github.com/SpikeMurphy/ConformationLabStudio](https://github.com/SpikeMurphy/ConformationLabStudio). DOI: [https://doi.org/10.5281/zenodo.19171587](https://doi.org/10.5281/zenodo.19171587).
 
 ---
 

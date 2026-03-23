@@ -27,6 +27,7 @@ Run failed after 1h 13m 49s
 '''
 # TODO: Update log file, e.g. include batch command, and ranking, remove unnecessary output.
 # TODO: Update error handling, reset status update colors (currently remain red)
+# TODO: Enter type annotations
 
 APP_NAME = "ConformationLab Studio"
 APP_VERSION = "1.0.1"
@@ -372,7 +373,7 @@ def configure_grid(root):
     root.geometry(scale)
 
 
-def get_centered_geometry(scale=0.9):
+def get_centered_geometry(scale: float = 0.9):
     '''
     Calculate centered window geometry based on screen size and scale.
     
